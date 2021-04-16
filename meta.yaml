@@ -1,0 +1,37 @@
+{% set name = "davordecorator" %}
+{% set version = "0.1.0" %}
+
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ./
+
+build:
+  number: 0
+  script: python3 setup.py install
+
+requirements:
+  host:
+    - pip
+    - python >=3.6,<4.0
+  run:
+    - python >=3.6,<4.0
+
+test:
+  imports:
+    - davordecorator
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://pypi.org/project/davordecorator/
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - AddYourGitHubIdHere
